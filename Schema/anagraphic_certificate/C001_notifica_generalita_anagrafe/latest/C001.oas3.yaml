@@ -19,70 +19,70 @@ info:
 #     description: Url di test per Consultazione Enti C001
 #   - url: 'https://modipa.anpr.interno.it/govway/rest/in/MinInternoPortaANPR-PDND/C001–servizioNotifica/v1'
 #     description: Url di esercizio per Consultazione Enti C001
-tags:
-- name: E002 service
-  description: Manage consultazione enti
-security:
-  - bearerAuth: []
-    Agid-JWT-Signature: []
-paths:
-  /status:
-    get:
-      summary: Returns the application status
-      description: |
-        Returns the application status. For testing purposes, it might randomly reply with an error.
-      operationId: get_status
-      tags:
-        - health
-      responses:
-        '200':
-          description: |
-            This is the valid status from the server.
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/RispostaKO'
-  /anpr-service-e002:
-    post:
-      tags:
-        - E002 service
-      summary: Trova caso d'uso
-      description: Consultazione di un caso d'uso
-      operationId: e002
-      security:
-        - bearerAuth: []
-      requestBody:
-        required: true
-        description: Richiesta da consultare
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/RichiestaE002'
-      responses:
-        "200":
-          description: Caso d'uso trovato
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RispostaE002OK'
-        "400":
-          description: Caso d'uso invalido
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/RispostaKO'
-        "404":
-          description: Caso d'uso non trovato
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/RispostaKO'
-        "500":
-          description: Internal Server Error
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/RispostaKO'
+# tags:
+# - name: E002 service
+#   description: Manage consultazione enti
+# security:
+#   - bearerAuth: []
+#     Agid-JWT-Signature: []
+# paths:
+#   /status:
+#     get:
+#       summary: Returns the application status
+#       description: |
+#         Returns the application status. For testing purposes, it might randomly reply with an error.
+#       operationId: get_status
+#       tags:
+#         - health
+#       responses:
+#         '200':
+#           description: |
+#             This is the valid status from the server.
+#           content:
+#             application/problem+json:
+#               schema:
+#                 $ref: '#/components/schemas/RispostaKO'
+#   /anpr-service-e002:
+#     post:
+#       tags:
+#         - E002 service
+#       summary: Trova caso d'uso
+#       description: Consultazione di un caso d'uso
+#       operationId: e002
+#       security:
+#         - bearerAuth: []
+#       requestBody:
+#         required: true
+#         description: Richiesta da consultare
+#         content:
+#           application/json:
+#             schema:
+#               $ref: '#/components/schemas/RichiestaE002'
+#       responses:
+#         "200":
+#           description: Caso d'uso trovato
+#           content:
+#             application/json:
+#               schema:
+#                 $ref: '#/components/schemas/RispostaE002OK'
+#         "400":
+#           description: Caso d'uso invalido
+#           content:
+#             application/problem+json:
+#               schema:
+#                 $ref: '#/components/schemas/RispostaKO'
+#         "404":
+#           description: Caso d'uso non trovato
+#           content:
+#             application/problem+json:
+#               schema:
+#                 $ref: '#/components/schemas/RispostaKO'
+#         "500":
+#           description: Internal Server Error
+#           content:
+#             application/problem+json:
+#               schema:
+#                 $ref: '#/components/schemas/RispostaKO'
 components:
   schemas:
     RichiestaE002:
