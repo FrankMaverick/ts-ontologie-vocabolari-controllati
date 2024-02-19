@@ -30,7 +30,7 @@
     dct:rightsHolder <https://w3id.org/italia/data/public-organization/m_it>  ; 
 	dct:publisher <https://w3id.org/italia/data/public-organization/PCM-1RSIZZ> ; 
     dct:title "Consultazione ANPR API C001"@it ; 
-    #owl:versionInfo "Versione 1.0"@it ; 
+    owl:versionInfo "Versione 1.0"@it ; 
     
     dcat:distribution <https://w3id.org/italia/Schema/anagraphic_certificate/C001_notifica_generalita_anagrafe/latest/C001.oas3.yaml> ; 
     
