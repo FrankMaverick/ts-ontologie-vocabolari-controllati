@@ -498,30 +498,3 @@ components:
           type: string
         valoreErroreAnomalia:
           type: string
-  securitySchemes:
-    bearerAuth:
-      type: http
-      description: 'A bearer token in the format of a JWS and conformed to the specifications included in [RFC8725](https://tools.ietf.org/html/RFC8725).'
-      scheme: bearer
-      bearerFormat: JWT          
-    Agid-JWT-Signature:
-      type: apiKey
-      in: header
-      name: Agid-JWT-Signature
-      description: |-
-        Header della firma di JWS.
-        Il valore di questo header è una firma JWS.
-        Vedere Modi  [integrity_rest_02] Integrità del payload del messaggio REST in PDND
-    Agid-JWT-TrackingEvidence:
-      type: apiKey
-      in: header
-      name: Agid-JWT-TrackingEvidence
-      description: |-
-        Header della firma di JWS.
-        Il valore di questo header è una firma JWS.
-        Vedere Modi  [audit_rest_02] Inoltro dati tracciati nel dominio del Fruitore REST con correlazione
-        Claim da includere:
-            userID, un identificativo univoco dell'utente interno al dominio del fruitore che ha determinato l'esigenza della request di accesso all'e-service dell'erogatore;
-            userLocation, un identificativo univoco della postazione interna al dominio del fruitore da cui è avviata l'esigenza della request di accesso all'e-service dell'erogatore;
-            LoA, livello di sicurezza o di garanzia adottato nel processo di autenticazione informatica nel dominio del fruitore.
-
