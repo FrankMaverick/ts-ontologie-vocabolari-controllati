@@ -12,7 +12,9 @@ re_url = re.compile(r'[<"](https://github|https://raw.githubusercontent[^>"]*)[>
 def get_urls(glob_path):
     files = Path(".").glob(glob_path)
     for f in files:
+        print(f)
         for url in re_url.findall(f.read_text()):
+            print(url)
             if environ.get("PYTEST_ONLY", "") in url:
                 yield f.as_posix(), url.strip('<">')
 
@@ -30,7 +32,7 @@ def request_rl(method, url):
     return ret
 
 
-@pytest.mark.parametrize("fpath,url", get_urls("VocabolariControllati/**/*.ttl"))
+@pytest.mark.parametrize("fpath,url", get_urls("../VocabolariControllati/**/*.ttl"))
 def test_vocab_url(fpath, url):
     # raise NotImplementedError
     if "deprecated" in fpath.lower():
@@ -49,11 +51,13 @@ def test_vocab_url(fpath, url):
             pytest.skip(f"See {issue_url}")
 
     ret = request_rl(requests.head, url)
+    print(ret)
     assert ret.status_code in (200, 301, 302)
 
 
 @pytest.mark.parametrize("fpath,url", get_urls("Ontologie/**/latest/*.ttl"))
 def test_onto_url(fpath, url):
+    print(fpath, url)
     if "deprecated" in fpath.lower():
         return
     if "github.com/italia/daf-ontologie-vocabolari-controllati/issues" in url:

@@ -14,6 +14,9 @@ info:
   termsOfService: 'http://swagger.io/terms/'
   x-api-id: C001
   x-summary: Servizio di notifica
+paths: {}
+servers: []
+tags: []
 components:
   schemas:
     RichiestaE002:
